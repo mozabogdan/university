@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  app:
+    image: 'bitnami/symfony:1'
+    ports:
+      - '8081:8000'
+    volumes:
+      - '.:/app:cached'
+    environment:
+      - SYMFONY_PROJECT_NAME=app
+      - MARIADB_HOST=mariadb-univ
+      - MARIADB_PORT_NUMBER=3306
+      - MARIADB_USER=app
+      - MARIADB_PASSWORD=123456
+      - MARIADB_DATABASE=app
+    depends_on:
+      - mariadb-univ
+  mariadb-univ:
+    image: 'bitnami/mariadb:10.3'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_USER=app
+      - MARIADB_PASSWORD=123456
+      - MARIADB_DATABASE=app
+    ports:
+      - '3306:3306'

@@ -1,0 +1,41 @@
+services:
+    admin.user:
+        class: App\Admin\UserAdmin
+        arguments: [~, App\Entity\User, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: User }
+    admin.user_type:
+        class: App\Admin\UserTypeAdmin
+        arguments: [~, App\Entity\UserType, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: User Type }
+    admin.user_tax:
+        class: App\Admin\UserTaxAdmin
+        arguments: [~, App\Entity\UserTax, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: User Tax }
+    admin.faculty:
+        class: App\Admin\FacultyAdmin
+        arguments: [~, App\Entity\Faculty, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Faculty }
+    admin.specialisation:
+        class: App\Admin\SpecialisationAdmin
+        arguments: [~, App\Entity\Specialisation, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Specialisation }
+    admin.study_program:
+        class: App\Admin\StudyProgramAdmin
+        arguments: [~, App\Entity\StudyProgram, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Study Program }
+    admin.tax:
+        class: App\Admin\TaxAdmin
+        arguments: [~, App\Entity\Tax, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Tax }
+    admin.tax_type:
+        class: App\Admin\TaxTypeAdmin
+        arguments: [~, App\Entity\TaxType, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Tax Type }
